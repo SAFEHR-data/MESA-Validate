@@ -5,12 +5,16 @@
 import pandas as pd
 import streamlit as st
 
+from utils.auth import require_login
 from utils.metrics import (
     aggregate_metrics,
     export_to_csv_string,
     format_metrics_summary,
 )
 from utils.session_manager import SessionManager
+
+
+require_login()
 
 st.set_page_config(page_title="Analysis", layout="wide")
 st.logo("aic_logo.png")

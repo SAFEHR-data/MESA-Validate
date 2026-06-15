@@ -27,9 +27,10 @@ presto-validate/
 
 ## Installation
 
-1. **Install dependencies, including schema(s):**
-   ```bash
-   pip install -r requirements.txt
+1. Create authentication 
+   ```shell
+   cp auth.template.yaml auth.yaml
+   # now edit auth.yaml username and password
    ```
 
 2. **Configure schemas** in `schemas.yaml`:
@@ -44,7 +45,7 @@ presto-validate/
 ## Launch
 
 ```bash
-streamlit run Home.py
+docker compose up -d --build
 ```
 
 Default URL: http://localhost:8501

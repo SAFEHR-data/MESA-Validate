@@ -1,0 +1,17 @@
+cookie:
+  expiry_days: 30
+  key: streamlit_auth_key
+  name: streamlit_auth_name
+credentials:
+  usernames:
+    first_user:
+      email: first_user@example.com
+      failed_login_attempts: 0 # Will be managed automatically
+      first_name: First
+      last_name: User
+      logged_in: False # Will be managed automatically
+      password: ReplaceWithALongAndSecurePassword9! # Will be hashed automatically
+      roles: 
+      - admin
+      - editor
+      - viewer

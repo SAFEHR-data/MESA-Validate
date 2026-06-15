@@ -1,17 +1,18 @@
 """
 1_Sessions.py - management and setup of validation sessions
 """
-
 import uuid
 
 import streamlit as st
 
+from utils.auth import require_login
 from utils.models import FieldSelection, Session
 from utils.predictions_loader import list_prediction_folders
 from utils.schema_inspector import SchemaInspector
 from utils.schema_loader import get_schema_list
 from utils.session_manager import SessionManager
 
+require_login()
 st.set_page_config(page_title="Sessions", layout="wide")
 st.logo("aic_logo.png")
 

@@ -25,3 +25,6 @@ SCHEMA_MISMATCH_REPORT.md
 
 # Streamlit
 .streamlit/
+
+# config files
+auth.yaml

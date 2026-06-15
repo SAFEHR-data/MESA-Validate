@@ -6,11 +6,15 @@ from pathlib import Path
 
 import streamlit as st
 
+from utils.auth import require_login
 from utils.predictions_loader import load_prediction_file
 from utils.schema_inspector import SchemaInspector
 from utils.session_manager import SessionManager
 from utils.styles import VALIDATE_PAGE_STYLES
 from utils.validation_ui import generate_validation_block
+
+
+require_login()
 
 st.set_page_config(page_title="Validate", layout="wide")
 st.logo("aic_logo.png")
