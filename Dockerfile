@@ -1,13 +1,21 @@
-FROM python:3.12-slim
+FROM python:3.13-slim
+SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY . .
+COPY --from=ghcr.io/astral-sh/uv:0.11.28 /uv /uvx /usr/local/bin/
 
-CMD ["streamlit", "run", "Home.py", \
-     "--server.address=0.0.0.0", \
-     "--server.port=8501", \
-     "--server.headless=true"]
+COPY requirements.txt pyproject.toml uv.lock ./
+
+RUN uv venv && source /app/.venv/bin/activate && uv sync && uv pip install -r requirements.txt
+
+COPY Home.py schemas.yaml aic_logo.png auth.yaml .
+COPY pages ./pages
+COPY utils ./utils
+
+CMD source /app/.venv/bin/activate && \
+  python -m streamlit run Home.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true
