@@ -33,3 +33,7 @@ SCHEMA_MISMATCH_REPORT.md
 
 # config files
 auth.yaml
+
+# data files
+predictions/
+sessions/
