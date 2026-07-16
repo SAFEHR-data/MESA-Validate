@@ -3,6 +3,10 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 
+ARG HTTP_PROXY
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTP_PROXY
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends git \
     && rm -rf /var/lib/apt/lists/*
