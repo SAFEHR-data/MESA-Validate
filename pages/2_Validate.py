@@ -105,6 +105,7 @@ else:
                     f"padding: 10px; background-color: #f5f5f5; border-radius: 5px; "
                     f'border: 1px solid #ddd;">'
                     f"{content}</div>",
+                unsafe_allow_html = True
                 )
 
         with val_col:
