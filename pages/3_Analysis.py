@@ -5,13 +5,13 @@
 import pandas as pd
 import streamlit as st
 
-from utils.auth import require_login
-from utils.metrics import (
+from mesa_validate.auth import require_login
+from mesa_validate.metrics import (
     aggregate_metrics,
     export_to_csv_string,
     format_metrics_summary,
 )
-from utils.session_manager import SessionManager
+from mesa_validate.session_manager import SessionManager
 
 
 require_login()
