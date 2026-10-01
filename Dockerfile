@@ -22,4 +22,4 @@ COPY pages ./pages
 COPY mesa_validate ./mesa_validate
 
 CMD source /app/.venv/bin/activate && \
-  python -m streamlit run Home.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true
+  python -m streamlit run Home.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true --theme.base=light
