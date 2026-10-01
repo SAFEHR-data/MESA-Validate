@@ -22,6 +22,8 @@ authenticator = stauth.Authenticate(
 )
 
 def require_login():
+    if "logout" not in st.session_state:
+        st.session_state["logout"] = None
     try:
         authenticator.login()
     except Exception as e:
